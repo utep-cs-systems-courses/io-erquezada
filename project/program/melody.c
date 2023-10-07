@@ -1,26 +1,22 @@
-#include <msp430.h>
-#include "libTimer.h"
-#include "buzzer.h"
-#include "led.h"
-
 void melody(int counter) {
-  // Specific pitch numbers
+  // Specific pitch numbers and note durations (in microseconds)
   int notes[] = {523, 659, 783, 493, 523, 587, 523, 880, 783, 1046, 783, 698, 659, 698, 659};
+  int durations[] = {300000, 300000, 300000, 300000, 300000, 300000, 300000, 300000, 300000, 300000, 300000, 300000, 300000, 300000, 300000};
   int numNotes = sizeof(notes) / sizeof(notes[0]); // Array size
   
-  // Play each note twice simultaneously
+  // Play each note
   for (int i = 0; i < numNotes; i++) {
     // Turn on green LED and turn off red LED
     P1OUT |= LED_GREEN;
     P1OUT &= ~LED_RED;
     buzzer_set_period(notes[i]);
-    __delay_cycles(1000000); // Delay between notes
+    __delay_cycles(durations[i]); // Delay based on note duration
     
     // Turn on red LED and turn off green LED
     P1OUT |= LED_RED;
     P1OUT &= ~LED_GREEN;
     buzzer_set_period(notes[i]);
-    __delay_cycles(1000000); // Delay between notes
+    __delay_cycles(durations[i]); // Delay based on note duration
   }
   
   // Turn off both LEDs after playing the melody
@@ -31,12 +27,4 @@ void melody(int counter) {
   if (counter < 3) {
     melody(counter + 1); // Increment the counter for recursion
   }
-}
-
-int main() {
-  configureClocks(); // Configure clocks
-  buzzer_init();     // Initialize the buzzer
-  P1DIR |= LEDS;     // Set LEDs as output
-  melody(0);         // Start playing the melody
-  or_sr(0x18);       // CPU off, GIE on
 }
