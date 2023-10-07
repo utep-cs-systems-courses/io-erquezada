@@ -3,7 +3,7 @@
 #include "buzzer.h"
 #include "led.h"
 
-int notes[] = {587, 880, 1047, 784};
+int notes[] = {440, 830, 740, 466};
 
 // Function to play the melody
 void weirdSound() {
