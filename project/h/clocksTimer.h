@@ -1,8 +1,10 @@
-#ifndef timerLib_included
-#define timerLib_included
+#include "timerLib.h"
 
-void configureClocks();
-void enableWDTInterrupts();
-void timerAUpmode();
-
-#endif
+int main() {
+    // Call functions from timerLib.h
+    configureClocks();
+    enableWDTInterrupts();
+    timerAUpmode();
+    // Rest of your code
+    return 0;
+}
