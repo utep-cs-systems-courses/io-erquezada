@@ -14,8 +14,8 @@
 
 // Function prototypes
 void stateMachine();
-void crazySound();
+void alarmSound();
 void melody(int counter);
-void weirdSound();
+void randomSound();
 
 #endif // led_included

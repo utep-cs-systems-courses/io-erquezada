@@ -3,7 +3,7 @@
 #include "buzzer.h"
 #include "led.h"
 
-void crazySound() {
+void alarmSound() {
   int i = 0;
   while (1) {
     // Play the first sound

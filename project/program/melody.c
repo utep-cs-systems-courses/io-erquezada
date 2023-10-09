@@ -1,6 +1,6 @@
 void melody(int counter) {
   // Specific pitch numbers and note durations (in microseconds)
-  int notes[] = {523, 659, 783, 493, 523, 587, 523, 880, 783, 1046, 783, 698, 659, 698, 659};
+  int notes[] = {523, 659, 783, 493, 523, 587, 523, 880, 783, 1046, 783, 698, 659, 698, 659}; // Plays a small melody
   int durations[] = {300000, 300000, 300000, 300000, 300000, 300000, 300000, 300000, 300000, 300000, 300000, 300000, 300000, 300000, 300000};
   int numNotes = sizeof(notes) / sizeof(notes[0]); // Array size
   

@@ -1,6 +1,6 @@
 # Makefile configurations
 
-COMMON_OBJECTS = buzzer.o mainRunner.o crazySound.o stateMachine.o melody.o
+COMMON_OBJECTS = buzzer.o mainRunner.o alarmSound.o stateMachine.o melody.o randomSound.o
 CPU = msp430g2553
 CFLAGS = -mmcu=${CPU} -I../h -L/opt/ti/msp430_gcc/include
 
@@ -26,11 +26,14 @@ buzzer.o: buzzer.c buzzer.h
 mainRunner.o: mainRunner.c buzzer.h led.h
 	${CC} ${CFLAGS} -c -o $@ $<
 
-crazySound.o: crazySound.c buzzer.h
+alarmSound.o: alarmSound.c buzzer.h
 	${CC} ${CFLAGS} -c -o $@ $<
 
 stateMachine.o: stateMachine.c buzzer.h led.h
 	${CC} ${CFLAGS} -c -o $@ $<
 
 melody.o: melody.c buzzer.h
+	${CC} ${CFLAGS} -c -o $@ $<
+
+randomSound.o: randomSound.c buzzer.h led.h
 	${CC} ${CFLAGS} -c -o $@ $<

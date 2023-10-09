@@ -1,5 +1,5 @@
-void weirdSound() {
-  int notes[] = {440, 830, 740, 466};
+void randomSound() {
+  int notes[] = {440, 830, 740, 466}; // plays random notes
   int durations[] = {500000, 500000, 500000, 500000}; // Adjust durations as needed
 
   int numNotes = sizeof(notes) / sizeof(notes[0]);

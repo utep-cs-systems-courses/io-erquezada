@@ -13,10 +13,10 @@ void stateMachine() {
     melody(0);
   } else if (!(p2val & TOPS2)) {
     // Button TOPS2 pressed
-    weirdSound();
+    randomSound();
   } else if (!(p2val & TOPS3)) {
     // Button TOPS3 pressed
-    crazySound();
+    alarmSound();
   } else if (!(p2val & TOPS4)) {
     // Button TOPS4 pressed
     // Handle TOPS4 button press here
